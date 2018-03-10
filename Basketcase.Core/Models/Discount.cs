@@ -7,6 +7,7 @@ namespace Basketcase.Core.Models
     public class Discount
     {
         public string Product { get; set; }
-        public decimal Percentage { get; set; }
+        public int Percentage { get; set; }
+        public int QualifyingProducts { get; set; }
     }
 }

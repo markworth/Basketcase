@@ -8,6 +8,6 @@ namespace Basketcase.Core.Models
     {
         public const string BREAD = "Bread";
         public const string MILK = "Milk";
-        public const string BUTTER = "Bread";
+        public const string BUTTER = "Butter";
     }
 }

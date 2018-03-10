@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using Basketcase.Core.Models;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Basketcase.Tests
+namespace Basketcase.Tests.Models
 {
     [TestFixture]
     public class BasketTests
@@ -34,6 +31,16 @@ namespace Basketcase.Tests
         {
             _basket.AddProduct(ProductNames.BREAD);
             _basket.AddProduct(ProductNames.BREAD);
+
+            _basket.Items.Count.ShouldBe(1);
+            _basket.Items[0].Name.ShouldBe(ProductNames.BREAD);
+            _basket.Items[0].Quantity.ShouldBe(2);
+        }
+
+        [Test]
+        public void GivenAProductIsAddedWithAQuantityOf2_WhenItemsAreRetrieved_ThenTheQuantityIs2()
+        {
+            _basket.AddProduct(ProductNames.BREAD, 2);
 
             _basket.Items.Count.ShouldBe(1);
             _basket.Items[0].Name.ShouldBe(ProductNames.BREAD);

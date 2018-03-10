@@ -12,9 +12,16 @@ namespace Basketcase.Core.Repository
 
     public class ProductRepository : IProductRepository
     {
+        private Dictionary<string, Product> _product = new Dictionary<string, Product>()
+        {
+            {  ProductNames.BUTTER, new Product() { Name = ProductNames.BREAD, Cost = 0.8M } },
+            {  ProductNames.MILK, new Product() { Name = ProductNames.MILK, Cost = 1.15M } },
+            {  ProductNames.BREAD, new Product() { Name = ProductNames.BREAD, Cost = 1 } },
+        };
+
         public Product GetProduct(string name)
         {
-            throw new NotImplementedException();
+            return _product[name];
         }
     }
 }
