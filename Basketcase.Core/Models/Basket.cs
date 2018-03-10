@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Basketcase.Core.Models
@@ -8,12 +9,20 @@ namespace Basketcase.Core.Models
     {
         private IList<BasketItem> basketItems = new List<BasketItem>();
 
-        public void AddProduct(Product product)
+        public void AddProduct(string productName)
         {
-            throw new NotImplementedException();
+            var existingProduct = basketItems.FirstOrDefault(x => x.Name == productName);
+            if (existingProduct == null)
+            {
+                basketItems.Add(new BasketItem() { Name = productName, Quantity = 1 });
+            }
+            else
+            {
+                existingProduct.Quantity = existingProduct.Quantity + 1;
+            }
         }
 
-        public void RemoveProduct(Product product)
+        public void ChangeQuantity(string productName, int quantity)
         {
             throw new NotImplementedException();
         }

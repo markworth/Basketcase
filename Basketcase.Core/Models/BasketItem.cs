@@ -6,15 +6,7 @@ namespace Basketcase.Core.Models
 {
     public class BasketItem
     {
-        public BasketItem(string name, decimal costPerItem, int quantity)
-        {
-            Name = name;
-            CostPerItem = costPerItem;
-            Quantity = quantity;
-        }
-
-        public string Name { get; }
-        public decimal CostPerItem { get; }
-        public int Quantity { get; }
+        public string Name { get; set; }
+        public int Quantity { get; set;  }
     }
 }
